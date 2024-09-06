@@ -1466,3 +1466,87 @@ your_project/
 ```
 
 So basically, **Jinja2** will only work properly if your HTML files are placed in the right folder (`templates`). If they're missing or in the wrong place, **Jinja2** won't be able to find them and will throw the error!
+
+
+
+-----
+
+### **Basic Idea of GET and POST**
+- **GET**: Think of it as asking for something. For example, when you open a website, you’re sending a **GET** request to the server to fetch the page.
+- **POST**: Think of it as sending information to the server. For example, when you submit a form (like entering your name and clicking submit), you’re sending a **POST** request with the data you entered.
+
+---
+
+### **Code Explanation with Real-Life Example:**
+
+#### 1. **Creating the Flask App:**
+```python
+app = Flask(__name__)
+```
+This creates the Flask app. It’s like saying, “I’m opening my coffee shop.” Now your app is ready to handle requests.
+
+---
+
+#### 2. **Welcome Route:**
+```python
+@app.route("/")
+def welcome():
+    return "<html><H1>Welcome to the flask course</H1></html>"
+```
+This is a basic route that shows a welcome message. When someone visits the homepage (`"/"`), it sends back a simple HTML message like a “Welcome” banner at your coffee shop entrance.
+
+---
+
+#### 3. **GET Request Example (index page):**
+```python
+@app.route("/index", methods=['GET'])
+def index():
+    return render_template('index.html')
+```
+- **GET** is used here, meaning the server expects to receive a request to fetch the `index.html` page. 
+- This is like someone walking into your coffee shop and **asking for the menu** (the menu being the `index.html` file).
+- The server responds by giving them the HTML page (like handing over the menu).
+
+---
+
+#### 4. **GET and POST Example (form page):**
+```python
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+    if request.method == 'POST':
+        name = request.form['name']
+        return f'Hello {name}!'
+    return render_template('form.html')
+```
+- **GET request**: If someone just visits the form page, they will see the form (like giving them a form to write their name on).
+- **POST request**: When they submit the form (fill in their name), a **POST** request is sent with the data (like handing the form back to you).
+    - Here, the code checks if the request is a **POST** request.
+    - It extracts the name they entered: `name = request.form['name']`.
+    - Then it sends back a message, like, "Hello, John!" (if the person entered their name as John).
+
+#### **Real-life example:**
+- **GET**: You walk into a coffee shop and ask for a form (menu). They give you the form (menu).
+- **POST**: You fill in your name on the form and hand it back. They respond with, “Hello, [your name]! Thanks for filling out the form!”
+
+---
+
+#### 5. **Another Form Example (submit route):**
+```python
+@app.route('/submit', methods=['GET', 'POST'])
+def submit():
+    if request.method == 'POST':
+        name = request.form['name']
+        return f'Hello {name}!'
+    return render_template('form.html')
+```
+This is just another example of how you can have a route that handles both **GET** and **POST** requests. The logic is the same as the previous form, but the route is `/submit`.
+
+---
+
+### **Summarizing:**
+- **GET**: Asking for a web page (like visiting a website or asking for a form at a coffee shop).
+- **POST**: Sending data to the server (like filling out a form and submitting it).
+
+By using **GET** and **POST** in Flask, you’re allowing the server to handle both situations: **showing web pages (GET)** and **processing data submitted via forms (POST)**.
+
+
