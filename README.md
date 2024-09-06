@@ -764,3 +764,71 @@ Each logger only handles messages related to its own "classroom" or part of the 
 
 - **Loggers** are like classrooms that keep different notes.
 - **Multiple loggers** help you organize and manage logs from different parts of your program separately.
+
+
+
+### **Introduction to Flask Framework**
+
+Flask is a micro web framework written in Python. It's designed to be simple and easy to use for creating web applications. Flask is especially useful for machine learning (ML) and data science projects, where you may need to create a web interface to interact with ML models.
+
+---
+
+### **Why Use Flask?**
+Flask is used to develop **end-to-end web applications**, allowing developers to:
+
+- Create dynamic web pages
+- Handle user input via forms or APIs
+- Integrate web apps with machine learning models to showcase their functionality (e.g., uploading an image for prediction).
+
+Flask provides an easy way to build such applications without needing a full-fledged framework like Django.
+
+---
+
+### **Key Components of Flask**
+Flask has two main components that are essential for building web applications:
+
+1. **WSGI (Web Server Gateway Interface)**  
+   WSGI is a protocol that helps web servers communicate with web applications.
+
+2. **Jinja2 Template Engine**  
+   Jinja2 is a template engine that allows Flask to create dynamic web pages by combining HTML templates with data (e.g., from databases, APIs, or ML models).
+
+---
+
+### **WSGI (Web Server Gateway Interface)**
+
+- **Purpose**: WSGI acts as a bridge between the **web server** (e.g., AWS EC2, Azure) and the **web application** created with Flask.
+  
+- **How It Works**:
+  - When a user sends a request (e.g., visiting a webpage), the web server receives it.
+  - The WSGI protocol forwards the request to the Flask web application.
+  - Flask processes the request and sends the appropriate response (e.g., showing a webpage).
+  
+- **Example**:  
+  Imagine hosting a website on AWS, and a user visits your homepage (e.g., `google.com`). The web server uses WSGI to direct this request to the Flask application, which handles it and displays the homepage.
+
+---
+
+### **Jinja2 Template Engine**
+
+- **Purpose**: Jinja2 allows Flask to create **dynamic web pages** by combining HTML templates with data from various sources like databases, CSV files, or machine learning models.
+
+- **How It Works**:
+  - You design an HTML template (e.g., for a login page or image classifier).
+  - Jinja2 fills the template with data from the backend (e.g., a database or ML model response).
+  
+- **Example**:  
+  Consider a webpage where a user uploads an image to classify it as either a dog or a cat. Jinja2 takes the image input and interacts with the ML model to generate the classification result (e.g., "This is a cat") and displays it on the webpage.
+
+- **Application**:
+  - Login forms: Take user input (e.g., username and password) and verify it against a database.
+  - Dynamic content: Update pages dynamically with data from different sources.
+
+---
+
+### **Conclusion**
+Flask, with its WSGI and Jinja2 components, enables the creation of full-featured, dynamic web applications. It is widely used in machine learning projects to develop user-friendly interfaces that can interact with models, making it essential for data scientists and ML engineers.
+
+---
+
+
